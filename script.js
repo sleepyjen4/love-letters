@@ -3,15 +3,14 @@ const loveLetters = [
     "You are my favorite hello and my hardest goodbye.",
     "In your arms, I’ve found my safe place.",
     "I didn’t believe in soulmates until I met you.",
-    "Your love feels like home to me.",
-    "Even on my worst days, you make me feel loved.",
+    "Your love feels like home to me. I love you so much.",
+    "Even on my worst days, you make me feel so loved.",
     "You make my heart smile in ways words can’t describe.",
     "Forever doesn’t seem long enough with you.",
     "I love you more with every breath I take.",
     "With you, I’ve found the meaning of true love.",
     "You are the reason my heart beats a little faster.",
     "I still get butterflies every time I think of you.",
-    "You and I — we just make sense.",
     "Being loved by you is my favorite gift.",
     "Every love song makes sense since I met you.",
     "I choose you. And I’ll choose you again and again.",
@@ -61,13 +60,36 @@ const loveLetters = [
     "Your love feels like a soft blanket and warm hot chocolate on a cold, rainy day.",
     "Your love makes my world gentler.",
     "Even in silence, you make me feel heard.",
-    "Being loved by you is my most favourite feeling."
+    "Being loved by you is my most favourite feeling.",
+    "I can never get over the thought of not playing with your hair."
 ];
 
-function generateLetter () {
+function generateLetter() {
     const letter = document.getElementById("letter");
     let index = Math.floor(Math.random() * loveLetters.length);
     let message = loveLetters[index];
     letter.textContent = message;
 }
-    
+   
+function countdownTimer() {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+
+    let nextMonthlyversary = new Date(currentYear, currentMonth, 17);
+
+    if (today.getDate() == 17) {
+        document.getElementById("month-message").textContent = "Happy Monthly Anniversary Babes!";
+        return;
+    } else if (today.getDate() > 17) {
+        nextMonthlyversary = new Date(currentYear, currentMonth + 1, 17);
+    } 
+
+    const oneDay = 1000 * 60 * 60 * 24;  
+    const diffInTime = nextMonthlyversary.getTime() - today.getTime();
+    const daysRemaining = Math.ceil(diffInTime / oneDay);
+
+    document.getElementById("countdown").textContent = daysRemaining;
+}
+
+countdownTimer();
