@@ -65,6 +65,11 @@ const loveLetters = [
 ];
 
 function generateLetter() {
+    const popSound = document.getElementById("pop-sound");
+    popSound.volume = 0.2;
+    popSound.currentTime = 0;
+    popSound.play();
+
     const letter = document.getElementById("letter");
     let index = Math.floor(Math.random() * loveLetters.length);
     let message = loveLetters[index];
