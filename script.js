@@ -75,21 +75,26 @@ function countdownTimer() {
     const today = new Date();
     const currentYear = today.getFullYear();
     const currentMonth = today.getMonth();
+    const monthlyversaryDay = 17;
 
-    let nextMonthlyversary = new Date(currentYear, currentMonth, 17);
+    let nextMonthlyversary = new Date(currentYear, currentMonth, monthlyversaryDay);
 
-    if (today.getDate() == 17) {
+    if (today.getDate() == monthlyversaryDay) {
         document.getElementById("month-message").textContent = "Happy Monthly Anniversary Babes!";
         return;
-    } else if (today.getDate() > 17) {
-        nextMonthlyversary = new Date(currentYear, currentMonth + 1, 17);
+    } else if (today.getDate() > monthlyversaryDay) {
+        nextMonthlyversary = new Date(currentYear, currentMonth + 1, monthlyversaryDay);
     } 
 
     const oneDay = 1000 * 60 * 60 * 24;  
     const diffInTime = nextMonthlyversary.getTime() - today.getTime();
     const daysRemaining = Math.ceil(diffInTime / oneDay);
 
-    document.getElementById("countdown").textContent = daysRemaining;
+    if (daysRemaining == 1) {
+        document.getElementById("countdown").textContent = daysRemaining + " day";
+    } else {
+        document.getElementById("countdown").textContent = daysRemaining + " days";
+    }
 }
 
 countdownTimer();
