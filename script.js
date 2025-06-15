@@ -64,12 +64,15 @@ const loveLetters = [
     "I can never get over the thought of not playing with your hair."
 ];
 
-function generateLetter() {
+function playSound() {
     const popSound = document.getElementById("pop-sound");
-    popSound.volume = 0.2;
+    popSound.volume = 0.7;
     popSound.currentTime = 0;
-    popSound.play();
+    popSound.play()
+}
 
+function generateLetter() {
+    playSound();
     const letter = document.getElementById("letter");
     let index = Math.floor(Math.random() * loveLetters.length);
     let message = loveLetters[index];
