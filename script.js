@@ -68,7 +68,7 @@ function playSound() {
     const popSound = document.getElementById("pop-sound");
     popSound.volume = 0.7;
     popSound.currentTime = 0;
-    popSound.play()
+    popSound.play();
 }
 
 function generateLetter() {
